@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-Assignment3</title>
+    <h1>JavaScript Assignment3</h1>
+</head>
+<body>
+    <h3>Armstrong Number</h3>
+    <script>
+        function unpack(num){
+            var num1 = Math.floor(num/1000);
+            var num2 = Math.floor((num-(num1*1000))/100);
+            var num3 = Math.floor((num-(num1*1000+num2*100))/10);
+            var num4 = num-(num1*1000+num2*100+num3*10);
+            var lst = [num1,num2,num3,num4];
+            return lst;
+        }
+        function am(num){
+            let val1 = [];let sum=0;
+            val1 = unpack(num);
+            for (let item of val1){
+                if(item!==0){
+                    sum=sum+(item*item*item);
+                }
+            }
+            if (sum==num)
+                document.getElementById('am2').value='Armstrong No.';
+            else
+                document.getElementById('am2').value='Not an Armstrong No.';
+        }
+    </script>
+    <input type="number" placeholder="Enter Number" id="am1" />
+    <button onclick="am(document.getElementById('am1').value)">Result</button><br/>
+    <output id="am2">Result</output><br/><br/>
+
+    <h3>Special Number</h3>
+    <script>
+        function unpack(num){
+            var num1 = Math.floor(num/1000);
+            var num2 = Math.floor((num-(num1*1000))/100);
+            var num3 = Math.floor((num-(num1*1000+num2*100))/10);
+            var num4 = num-(num1*1000+num2*100+num3*10);
+            var lst = [num1,num2,num3,num4];
+            return lst;
+        }
+        function fact(num){
+            let i = 1; let j = 1;
+            while (i<=num){
+                j = j*i; i+=1;
+            }
+            return(j);
+        }
+        function as(num){
+            let val1 = [];let sum=0;
+            val1 = unpack(num);
+            for (let item of val1){
+                if(item!==0){
+                    sum=sum+fact(item);
+                }
+            }
+            if (sum==num)
+                document.getElementById('as2').value='Special No.';
+            else
+                document.getElementById('as2').value='Not an Special No.';
+        }
+    </script>
+    <input type="number" placeholder="Enter Number" id="as1" />
+    <button onclick="as(document.getElementById('as1').value)">Result</button><br/>
+    <output id="as2">Result</output><br/><br/>
+
+    <h3>Pattern with for loop</h3>
+    <script>
+        function patt(ran){
+            var num = 1; var str='';
+            for (let item=1;item<=ran;item++){
+                for (let x = item;x>=1;x--){
+                    str+=(num.toString());
+                    num++;  
+                }
+                str = str + '\n';
+            }
+            console.log(str);
+            document.getElementById('patt2').value = (str);
+        }
+    </script>
+    <input type="number" placeholder="Enter range" id="patt1" />
+    <button onclick="patt(document.getElementById('patt1').value)">Result</button><br/>
+    <output id="patt2">Pattern</output><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+    <footer>
+        <i>Dated = 27 Aug 2022, By Samyant</i> 
+    </footer>
+</body>
+</html>
